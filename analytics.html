@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cineplex Prototype - User Test Analytics</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .analytics-controls {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+    .analytics-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--card-bg);
+      border: 2px solid var(--border-color);
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 2rem;
+    }
+    .analytics-table th, 
+    .analytics-table td {
+      padding: 0.85rem 1rem;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+      font-size: 0.9rem;
+    }
+    .analytics-table th {
+      background-color: #eee;
+      font-weight: 700;
+      border-bottom: 2px solid var(--border-color);
+    }
+    .analytics-table tr:hover {
+      background-color: #f5f5f5;
+    }
+    .badge {
+      display: inline-block;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      background: #e2e2e2;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="navbar">
+    <a href="index.html" class="logo">Cineplex</a>
+    <div class="auth-links">
+      <a href="index.html">← Return to Prototype</a>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container">
+    <h1 class="section-title">📊 User Testing Analytics Dashboard</h1>
+    <p style="color: var(--text-muted); margin-bottom: 1.5rem;">
+      Track user testing sessions, stage completion times, and user selections (~4 test users).
+    </p>
+
+    <div class="analytics-controls">
+      <button id="btnExportCSV" class="btn-buy" style="width: auto; padding: 0.6rem 1.2rem;">📥 Export CSV</button>
+      <button id="btnExportJSON" class="btn-buy" style="width: auto; padding: 0.6rem 1.2rem;">📥 Export JSON</button>
+      <button id="btnClearData" class="btn-buy" style="width: auto; padding: 0.6rem 1.2rem; border-color: #c00; color: #c00;">🗑️ Clear Data</button>
+    </div>
+
+    <div style="overflow-x: auto;">
+      <table class="analytics-table">
+        <thead>
+          <tr>
+            <th>User / Session</th>
+            <th>Total Time</th>
+            <th>Location</th>
+            <th>Movie</th>
+            <th>Booking (Date & Time)</th>
+            <th>Seats</th>
+            <th>Auth Mode</th>
+            <th>Time Breakdown (Loc / Mov / Book / Auth / Pay)</th>
+            <th>Date Completed</th>
+          </tr>
+        </thead>
+        <tbody id="analyticsTableBody">
+          <!-- Dynamically populated -->
+        </tbody>
+      </table>
+    </div>
+
+    <div id="noDataMessage" style="display: none; text-align: center; padding: 3rem; background: #fff; border: 2px dashed #ccc; border-radius: 8px;">
+      <h3>No Test Analytics Recorded Yet</h3>
+      <p style="color: var(--text-muted); margin-top: 0.5rem;">Run through a complete test booking on the website to view analytics metrics here.</p>
+    </div>
+  </main>
+
+  <footer>
+    <p>Cineplex Prototype - Mid-Fidelity Wireframe Design</p>
+  </footer>
+
+  <script src="js/analytics.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const data = getSavedAnalytics();
+      const tbody = document.getElementById('analyticsTableBody');
+      const noDataMsg = document.getElementById('noDataMessage');
+
+      if (!data || data.length === 0) {
+        tbody.parentElement.style.display = 'none';
+        noDataMsg.style.display = 'block';
+        return;
+      }
+
+      tbody.innerHTML = '';
+      data.forEach(session => {
+        const tr = document.createElement('tr');
+        
+        const locTime = formatDuration(session.durations.location);
+        const movTime = formatDuration(session.durations.movie);
+        const bookTime = formatDuration(session.durations.booking);
+        const authTime = formatDuration(session.durations.auth);
+        const payTime = formatDuration(session.durations.payment);
+
+        const breakdownStr = `${locTime} | ${movTime} | ${bookTime} | ${authTime} | ${payTime}`;
+
+        tr.innerHTML = `
+          <td><strong>${session.userLabel}</strong></td>
+          <td><span class="badge" style="background: #333; color: #fff;">${formatDuration(session.totalDurationSeconds)}</span></td>
+          <td>${session.selections.city || 'N/A'}<br><small style="color:#666">${session.selections.theatre || ''}</small></td>
+          <td><strong>${session.selections.movie || 'N/A'}</strong></td>
+          <td>${session.selections.date || ''}<br><small style="color:#666">${session.selections.time || ''}</small></td>
+          <td>${(session.selections.seats || []).join(', ') || 'None'}</td>
+          <td><span class="badge">${session.selections.authMode || 'N/A'}</span></td>
+          <td><small>${breakdownStr}</small></td>
+          <td><small>${session.completedAt || 'N/A'}</small></td>
+        `;
+        tbody.appendChild(tr);
+      });
+
+      document.getElementById('btnExportCSV')?.addEventListener('click', exportAnalyticsCSV);
+      document.getElementById('btnExportJSON')?.addEventListener('click', exportAnalyticsJSON);
+      document.getElementById('btnClearData')?.addEventListener('click', clearAnalyticsData);
+    });
+  </script>
+</body>
+</html>

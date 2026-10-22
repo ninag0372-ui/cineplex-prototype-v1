@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cineplex - Enter Location</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="navbar">
+    <a href="index.html" class="logo">Cineplex</a>
+    <div class="auth-links">
+      <a href="login.html">Login + Sign up</a>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container">
+    <div class="location-wrapper">
+      <form id="locationForm" class="location-box">
+        <h2 style="margin-bottom: 1.5rem; font-size: 1.5rem;">Select Your Theatre</h2>
+        
+        <div class="search-input-group">
+          <span class="location-icon">📍</span>
+          <input 
+            type="text" 
+            id="cityInput" 
+            class="location-input" 
+            placeholder="Enter your city..." 
+            list="cityDatalist"
+            required 
+            autocomplete="off"
+          />
+          <datalist id="cityDatalist"></datalist>
+        </div>
+
+        <div class="control-group" style="text-align: left; margin-bottom: 1.5rem;">
+          <label for="theatreSelect" style="font-size: 0.95rem; color: var(--text-muted);">Available Theatre Locations</label>
+          <select id="theatreSelect" class="theatre-select" required></select>
+        </div>
+
+        <button type="submit" class="btn-submit">View Movies</button>
+      </form>
+    </div>
+  </main>
+
+  <footer>
+    <p>Cineplex Prototype - Mid-Fidelity Wireframe Design | <a href="analytics.html" style="color: var(--text-muted); text-decoration: underline;">📊 Test Analytics</a></p>
+  </footer>
+
+  <script src="js/analytics.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      initLocationPage();
+    });
+  </script>
+</body>
+</html>

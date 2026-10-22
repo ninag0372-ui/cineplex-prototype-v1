@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cineplex - Movie Selection</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="navbar">
+    <a href="index.html" class="logo">Cineplex</a>
+    <div class="auth-links">
+      <a href="login.html">Login + Sign up</a>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container">
+    <div class="current-location-banner">
+      <div>
+        <span>Showing movies for: </span>
+        <strong id="currentTheatreText">Loading...</strong>
+      </div>
+      <a href="index.html">Change Location</a>
+    </div>
+
+    <h1 class="section-title">Now Playing</h1>
+
+    <div id="movieGrid" class="movie-grid">
+      <!-- Dynamically populated via js/main.js -->
+    </div>
+  </main>
+
+  <footer>
+    <p>Cineplex Prototype - Mid-Fidelity Wireframe Design | <a href="analytics.html" style="color: var(--text-muted); text-decoration: underline;">📊 Test Analytics</a></p>
+  </footer>
+
+  <script src="js/analytics.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      initMoviesPage();
+    });
+  </script>
+</body>
+</html>

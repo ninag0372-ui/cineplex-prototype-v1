@@ -1,0 +1,541 @@
+/* Mid-Fidelity Wireframe Styling */
+:root {
+  --bg-color: #f8f9fa;
+  --card-bg: #ffffff;
+  --border-color: #333333;
+  --text-main: #111111;
+  --text-muted: #666666;
+  --accent-color: #222222;
+  --seat-available: #e0e0e0;
+  --seat-selected: #333333;
+  --seat-occupied: #a0a0a0;
+  --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  line-height: 1.5;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 3rem;
+  border-bottom: 2px solid var(--border-color);
+  background-color: var(--card-bg);
+}
+
+.navbar .logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  text-decoration: none;
+  color: var(--text-main);
+}
+
+.navbar .auth-links a {
+  text-decoration: none;
+  color: var(--text-main);
+  font-weight: 500;
+  font-size: 1.1rem;
+  border: 1px solid var(--border-color);
+  padding: 0.4rem 1rem;
+  border-radius: 4px;
+}
+
+/* Container */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem;
+  width: 100%;
+  flex: 1;
+}
+
+/* Section Titles */
+.section-title {
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 0.5rem;
+}
+
+/* Stage 1: Location Selection */
+.location-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 4rem;
+  text-align: center;
+}
+
+.location-box {
+  width: 100%;
+  max-width: 550px;
+  background-color: var(--card-bg);
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  padding: 2.5rem;
+}
+
+.search-input-group {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.location-icon {
+  position: absolute;
+  left: 1rem;
+  font-size: 1.3rem;
+  color: var(--text-muted);
+}
+
+.location-input {
+  width: 100%;
+  padding: 0.85rem 1rem 0.85rem 3rem;
+  font-size: 1.1rem;
+  border: 2px solid var(--border-color);
+  border-radius: 6px;
+  outline: none;
+}
+
+.theatre-select {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  font-size: 1rem;
+  border: 2px solid var(--border-color);
+  border-radius: 6px;
+  background-color: #fff;
+  margin-bottom: 1.5rem;
+  outline: none;
+}
+
+.btn-submit {
+  width: 100%;
+  padding: 0.85rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  background-color: var(--accent-color);
+  color: #fff;
+  border: 2px solid var(--border-color);
+  border-radius: 6px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-submit:hover {
+  background-color: #000;
+}
+
+.btn-secondary {
+  width: 100%;
+  padding: 0.85rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  background-color: #fff;
+  color: var(--text-main);
+  border: 2px solid var(--border-color);
+  border-radius: 6px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-secondary:hover {
+  background-color: #eee;
+}
+
+/* Stage 2: Movie Selection Grid */
+.current-location-banner {
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.current-location-banner a {
+  color: var(--text-main);
+  text-decoration: underline;
+  font-size: 0.95rem;
+}
+
+.movie-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 2rem;
+}
+
+.movie-card {
+  background-color: var(--card-bg);
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.movie-poster-placeholder {
+  width: 100%;
+  height: 220px;
+  background-color: #eee;
+  border: 2px dashed #999;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.movie-info {
+  margin-bottom: 1rem;
+}
+
+.movie-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+}
+
+.movie-details {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.btn-buy {
+  display: inline-block;
+  text-align: center;
+  padding: 0.5rem 1.5rem;
+  border: 2px solid var(--border-color);
+  border-radius: 20px;
+  background-color: #fff;
+  color: var(--text-main);
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  width: 100%;
+  transition: all 0.2s ease;
+}
+
+.btn-buy:hover {
+  background-color: var(--accent-color);
+  color: #fff;
+}
+
+/* Stage 3: Booking Layout */
+.booking-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+}
+
+@media (max-width: 768px) {
+  .booking-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.selected-movie-summary {
+  background-color: var(--card-bg);
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.selected-movie-summary .movie-poster-placeholder {
+  width: 100px;
+  height: 130px;
+  margin-bottom: 0;
+  flex-shrink: 0;
+}
+
+.seat-selection-section {
+  background-color: var(--card-bg);
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+
+.screen-container {
+  margin: 1.5rem 0 2rem 0;
+  text-align: center;
+}
+
+.screen {
+  width: 80%;
+  height: 25px;
+  border: 2px solid var(--border-color);
+  border-bottom: none;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  margin: 0 auto;
+  line-height: 25px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  background: #eaeaea;
+}
+
+.seats-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 0.6rem;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.seat {
+  width: 35px;
+  height: 35px;
+  border: 2px solid var(--border-color);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  background-color: var(--seat-available);
+  user-select: none;
+}
+
+.seat.selected {
+  background-color: var(--seat-selected);
+  color: #fff;
+}
+
+.seat.occupied {
+  background-color: var(--seat-occupied);
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.controls-panel {
+  background-color: var(--card-bg);
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.control-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.control-group label {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.control-group input[type="text"],
+.control-group input[type="email"],
+.control-group input[type="password"],
+.control-group select,
+.quantity-control {
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: 2px solid var(--border-color);
+  border-radius: 6px;
+  background-color: #fff;
+  width: 100%;
+}
+
+.quantity-control {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.quantity-btn {
+  width: 35px;
+  height: 35px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  border: 2px solid var(--border-color);
+  background-color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.quantity-value {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.summary-card {
+  margin-top: 1rem;
+  padding: 1rem;
+  border: 2px dashed var(--border-color);
+  border-radius: 6px;
+  background-color: #f1f1f1;
+}
+
+.summary-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+}
+
+/* Modal Popup (Confirm Spot) */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-overlay.active {
+  display: flex;
+}
+
+.modal-box {
+  background-color: var(--card-bg);
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  padding: 2.5rem;
+  width: 90%;
+  max-width: 480px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  position: relative;
+}
+
+/* Persistent Seat Hold Timer Banner */
+.hold-timer-banner {
+  background-color: #fff3cd;
+  border: 1.5px solid #ffeeba;
+  color: #856404;
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.modal-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.modal-subtitle {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  margin-bottom: 2rem;
+}
+
+.modal-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Auth & Payment Forms */
+.auth-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.auth-box {
+  background-color: var(--card-bg);
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  padding: 2.5rem;
+  width: 100%;
+  max-width: 520px;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.95rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+.auth-buttons-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1.5rem;
+  gap: 1rem;
+}
+
+.auth-buttons-row .btn-buy {
+  font-size: 1rem;
+}
+
+/* Payment Specific */
+.paypal-option {
+  border: 2px solid var(--border-color);
+  border-radius: 6px;
+  padding: 1rem;
+  text-align: center;
+  margin-top: 1.5rem;
+  font-weight: 700;
+  font-size: 1.1rem;
+  cursor: pointer;
+  background-color: #f1f1f1;
+  transition: background-color 0.2s;
+}
+
+.paypal-option:hover {
+  background-color: #e2e2e2;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 1.5rem;
+  border-top: 1px solid #ddd;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-top: auto;
+}

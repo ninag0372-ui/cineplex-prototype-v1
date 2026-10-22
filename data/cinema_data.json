@@ -1,0 +1,92 @@
+{
+  "cities": [
+    {
+      "id": "toronto",
+      "name": "Toronto",
+      "theatres": [
+        { "id": "t1", "name": "Cineplex Cinemas Yonge-Dundas" },
+        { "id": "t2", "name": "Cineplex VIP Cinemas Don Mills" },
+        { "id": "t3", "name": "Scotiabank Theatre Toronto" }
+      ]
+    },
+    {
+      "id": "vancouver",
+      "name": "Vancouver",
+      "theatres": [
+        { "id": "v1", "name": "Cineplex Odeon International Village Cinemas" },
+        { "id": "v2", "name": "Scotiabank Theatre Vancouver" },
+        { "id": "v3", "name": "Cineplex VIP Cinemas Brentwood" }
+      ]
+    },
+    {
+      "id": "montreal",
+      "name": "Montreal",
+      "theatres": [
+        { "id": "m1", "name": "Cinema Banque Scotia Montreal" },
+        { "id": "m2", "name": "Cineplex Forum and VIP" },
+        { "id": "m3", "name": "Cineplex Odeon Quartier Latin" }
+      ]
+    },
+    {
+      "id": "calgary",
+      "name": "Calgary",
+      "theatres": [
+        { "id": "c1", "name": "Cineplex Odeon Westhills Cinemas" },
+        { "id": "c2", "name": "Scotiabank Theatre Chinook" },
+        { "id": "c3", "name": "Cineplex VIP Cinemas University District" }
+      ]
+    }
+  ],
+  "movies": [
+    {
+      "id": "m101",
+      "title": "Dune: Part Two",
+      "genre": "Sci-Fi / Adventure",
+      "duration": "166 mins",
+      "rating": "PG-13",
+      "description": "Paul Atreides unites with Chani and the Fremen while seeking revenge against the conspirators who destroyed his family.",
+      "dates": ["2026-10-10", "2026-10-11", "2026-10-12"],
+      "times": ["1:30 PM", "4:45 PM", "8:15 PM", "10:30 PM"]
+    },
+    {
+      "id": "m102",
+      "title": "Inside Out 2",
+      "genre": "Animation / Comedy",
+      "duration": "96 mins",
+      "rating": "G",
+      "description": "Follow Riley in her teenage years as new emotions enter headquarters.",
+      "dates": ["2026-10-10", "2026-10-11", "2026-10-12"],
+      "times": ["12:00 PM", "2:30 PM", "5:00 PM", "7:30 PM"]
+    },
+    {
+      "id": "m103",
+      "title": "Oppenheimer",
+      "genre": "Biography / Drama",
+      "duration": "180 mins",
+      "rating": "R",
+      "description": "The story of American scientist J. Robert Oppenheimer and his role in the development of the atomic bomb.",
+      "dates": ["2026-10-10", "2026-10-11", "2026-10-12"],
+      "times": ["2:00 PM", "6:00 PM", "9:30 PM"]
+    },
+    {
+      "id": "m104",
+      "title": "Spider-Man: Across the Spider-Verse",
+      "genre": "Animation / Action",
+      "duration": "140 mins",
+      "rating": "PG",
+      "description": "Miles Morales catapults across the Multiverse, where he encounters a team of Spider-People.",
+      "dates": ["2026-10-10", "2026-10-11", "2026-10-12"],
+      "times": ["1:15 PM", "4:15 PM", "7:15 PM", "10:00 PM"]
+    },
+    {
+      "id": "m105",
+      "title": "Interstellar",
+      "genre": "Sci-Fi / Drama",
+      "duration": "169 mins",
+      "rating": "PG-13",
+      "description": "A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival.",
+      "dates": ["2026-10-10", "2026-10-11", "2026-10-12"],
+      "times": ["3:00 PM", "7:00 PM", "10:15 PM"]
+    }
+  ]
+}

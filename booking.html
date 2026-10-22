@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cineplex - Showtime & Seat Selection</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="navbar">
+    <a href="index.html" class="logo">Cineplex</a>
+    <div class="auth-links">
+      <a href="login.html">Login + Sign up</a>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container">
+    <div class="booking-layout">
+      <!-- Left Column: Selected Movie & Seat Selection -->
+      <div>
+        <div id="selectedMovieSummary" class="selected-movie-summary">
+          <!-- Dynamically populated -->
+        </div>
+
+        <div class="seat-selection-section">
+          <h2 style="font-size: 1.25rem; font-weight: 600;">Seat Selection</h2>
+          
+          <div class="screen-container">
+            <div class="screen">Screen</div>
+          </div>
+
+          <div id="seatsGrid" class="seats-grid">
+            <!-- Dynamically populated -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Date, Time, Quantity Controls -->
+      <div>
+        <form id="bookingForm" class="controls-panel">
+          <h2 style="font-size: 1.3rem; border-bottom: 2px solid var(--border-color); padding-bottom: 0.5rem;">Select Showtime</h2>
+
+          <div class="control-group">
+            <label for="dateSelect">Date</label>
+            <select id="dateSelect" required></select>
+          </div>
+
+          <div class="control-group">
+            <label for="timeSelect">Time</label>
+            <select id="timeSelect" required></select>
+          </div>
+
+          <div class="control-group">
+            <label>Quantity</label>
+            <div class="quantity-control">
+              <button type="button" id="btnMinus" class="quantity-btn">-</button>
+              <span id="quantityValue" class="quantity-value">1</span>
+              <button type="button" id="btnPlus" class="quantity-btn">+</button>
+            </div>
+          </div>
+
+          <div class="summary-card">
+            <div class="summary-item">
+              <span>Tickets Requested:</span>
+              <strong id="selectedCountSummary">1</strong>
+            </div>
+            <div class="summary-item">
+              <span>Selected Seats:</span>
+              <strong id="selectedSeatsSummary">None</strong>
+            </div>
+          </div>
+
+          <button type="submit" class="btn-submit" style="margin-top: 1rem;">Confirm Booking</button>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <!-- Modal Popup: Confirm Your Spot (Wireframe Image 1) -->
+  <div id="spotModal" class="modal-overlay">
+    <div class="modal-box">
+      <div class="hold-timer-banner">
+        <span>⏱️ Seat held for <span id="holdTimer">05:00</span> minutes</span>
+      </div>
+      <h2 class="modal-title">You're almost there!</h2>
+      <p class="modal-subtitle">Confirm your spot.</p>
+      
+      <div class="modal-actions">
+        <button id="modalLoginBtn" class="btn-submit">Log in</button>
+        <button id="modalGuestBtn" class="btn-secondary">Continue as Guest</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>Cineplex Prototype - Mid-Fidelity Wireframe Design | <a href="analytics.html" style="color: var(--text-muted); text-decoration: underline;">📊 Test Analytics</a></p>
+  </footer>
+
+  <script src="js/analytics.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      initBookingPage();
+    });
+  </script>
+</body>
+</html>

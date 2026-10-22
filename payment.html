@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cineplex - Payment</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="navbar">
+    <a href="index.html" class="logo">Cineplex</a>
+    <div class="auth-links">
+      <a href="login.html">log in + Sign up</a>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container">
+    <div class="auth-wrapper">
+      <div class="auth-box">
+        <!-- Seat hold timer countdown banner during payment -->
+        <div id="paymentHoldTimerBanner" class="hold-timer-banner" style="display: none;">
+          <span>⏱️ Seat held for <span id="paymentHoldTimer">05:00</span> minutes</span>
+        </div>
+
+        <h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1.5rem; border-bottom: 2px solid var(--border-color); padding-bottom: 0.5rem;">Payment</h2>
+
+        <div style="font-size: 1.25rem; font-weight: 700; margin-bottom: 1.5rem; display: flex; justify-content: space-between; align-items: center;">
+          <span>Total amount :</span>
+          <span id="totalAmountDisplay">$16.50</span>
+        </div>
+
+        <form id="paymentForm">
+          <div class="control-group" style="margin-bottom: 1rem;">
+            <label for="cardHolderName">Card holder name</label>
+            <input type="text" id="cardHolderName" placeholder="Name on card" required />
+          </div>
+
+          <div class="control-group" style="margin-bottom: 1rem;">
+            <label for="cardNumber">Card number</label>
+            <input type="text" id="cardNumber" placeholder="0000 0000 0000 0000" maxlength="19" required />
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem;">
+            <div class="control-group">
+              <label for="expiryDate">Expiry date</label>
+              <input type="text" id="expiryDate" placeholder="MM/YY" maxlength="5" required />
+            </div>
+            <div class="control-group">
+              <label for="zipCode">Zip/postal code</label>
+              <input type="text" id="zipCode" placeholder="A1A 1A1" required />
+            </div>
+          </div>
+
+          <button type="submit" class="btn-submit" style="margin-bottom: 1.5rem;">Confirm & Pay</button>
+        </form>
+
+        <hr style="border: 0; border-top: 2px solid var(--border-color); margin: 1.5rem 0;" />
+
+        <div id="paypalBtn" class="paypal-option">
+          Pay with PayPal
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>Cineplex Prototype - Mid-Fidelity Wireframe Design | <a href="analytics.html" style="color: var(--text-muted); text-decoration: underline;">📊 Test Analytics</a></p>
+  </footer>
+
+  <script src="js/analytics.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      initPaymentPage();
+    });
+  </script>
+</body>
+</html>

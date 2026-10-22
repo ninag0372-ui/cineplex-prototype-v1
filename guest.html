@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cineplex - Guest Checkout</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="navbar">
+    <a href="index.html" class="logo">Cineplex</a>
+    <div class="auth-links">
+      <a href="login.html">Login + Sign up</a>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container">
+    <div class="auth-wrapper">
+      <form id="guestForm" class="auth-box">
+        <!-- Seat hold timer countdown banner shown in checkout flow -->
+        <div id="guestHoldTimerBanner" class="hold-timer-banner" style="display: none;">
+          <span>⏱️ Seat held for <span id="guestHoldTimer">05:00</span> minutes</span>
+        </div>
+
+        <h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1.5rem; border-bottom: 2px solid var(--border-color); padding-bottom: 0.5rem;">Guest Checkout</h2>
+
+        <div class="control-group" style="margin-bottom: 1.2rem;">
+          <label for="guestEmail">Email for Ticket Receipt</label>
+          <input type="email" id="guestEmail" placeholder="Enter your email" required />
+        </div>
+
+        <div class="control-group" style="margin-bottom: 1.5rem;">
+          <label for="guestName">Full Name</label>
+          <input type="text" id="guestName" placeholder="Enter your full name" required />
+        </div>
+
+        <button type="submit" class="btn-submit">Continue to Payment</button>
+      </form>
+    </div>
+  </main>
+
+  <footer>
+    <p>Cineplex Prototype - Mid-Fidelity Wireframe Design | <a href="analytics.html" style="color: var(--text-muted); text-decoration: underline;">📊 Test Analytics</a></p>
+  </footer>
+
+  <script src="js/analytics.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      initGuestPage();
+    });
+  </script>
+</body>
+</html>
